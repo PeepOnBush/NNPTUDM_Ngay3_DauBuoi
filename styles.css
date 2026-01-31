@@ -124,3 +124,25 @@ tbody tr:nth-child(odd) .description-preview {
 tbody tr:nth-child(even) .description-preview {
     color: #333;
 }
+tbody tr {
+    position: relative;
+}
+
+/* Tooltip description */
+tbody tr:hover::after {
+    content: attr(data-description);
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    width: 300px;
+
+    white-space: normal;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}

@@ -38,17 +38,15 @@ function render() {
         }
         imagesHtml += '</div>';
 
-        row.innerHTML = `
-            <td>${product.id}</td>
-            <td class="title-cell">${product.title}</td>
-            <td>$${product.price}</td>
-            <td class="description-cell">
-                <span class="description-preview">${product.description}</span>
-                <div class="description-text">${product.description}</div>
-            </td>
-            <td>${product.category?.name || 'N/A'}</td>
-            <td>${imagesHtml}</td>
-        `;
+       row.dataset.description = product.description;
+
+row.innerHTML = `
+    <td>${product.id}</td>
+    <td class="title-cell">${product.title}</td>
+    <td>$${product.price}</td>
+    <td>${product.category?.name || 'N/A'}</td>
+    <td>${imagesHtml}</td>
+`;
 
         tableBody.appendChild(row);
     });
